@@ -7,4 +7,13 @@ class MoviesController < ApplicationController
     render({ :template => "movie_templates/index.html.erb"})
   end
 
+  def movie_details
+
+    @id = params.fetch("mov_id").to_i
+    @movie = Movie.where({ :id => @id}).at(0)
+    @list_of_movies = 
+
+    render({ :template => "movie_templates/details.html.erb"})
+  end
+
 end
