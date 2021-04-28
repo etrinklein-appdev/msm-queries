@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
 
     @id = params.fetch("mov_id").to_i
     @movie = Movie.where({ :id => @id}).at(0)
-    @list_of_movies = 
+    @director = Director.where({ :id => @movie.director_id}).at(0)
 
     render({ :template => "movie_templates/details.html.erb"})
   end
