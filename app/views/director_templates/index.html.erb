@@ -1,0 +1,9 @@
+<a href="/">Home</a>
+
+<h1>List of all directors</h1>
+
+<%= Director.all.each do |blah| %>
+  <li><%= blah.name %> </li>
+  <li><%= blah.dob %> </li>
+  <li><%= blah.bio %> </li>
+<% end %>
