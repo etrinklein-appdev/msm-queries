@@ -27,3 +27,16 @@
 </dl>
 
 <hr>
+<h2>Filmography</h2>
+
+<table border="1">
+<% @list_of_movies.each do |blah| %>
+  <tr>
+    <td><%= blah.id %> </td>
+    <td> <img src ="http://robohash.org/<%= blah.title %>"> </td>
+    <td><%= blah.title %> </td>
+    <td><%= blah.year %> </td>
+    <td><%= @dir_data.name%> </td>
+    <td> <a href="/movies/<%= blah.id%>">Show Details</a>   </td>
+  </tr>
+<% end %>

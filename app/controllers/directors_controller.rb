@@ -28,6 +28,7 @@ class DirectorsController < ApplicationController
 
     @dir = params.fetch("dir_id").to_i
     @dir_data = Director.where({ :id => @dir}).at(0)
+    @list_of_movies = Movie.where({ :director_id => @dir_data.id})
 
     render({ :template => "director_templates/details.html.erb"})
   end
