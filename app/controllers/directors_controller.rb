@@ -9,9 +9,27 @@ class DirectorsController < ApplicationController
   def eldest
 
     @oldest =Director.where.not({ :dob => nil}).order({ :dob => :asc}).at(0)
-    @olest_name = @oldest.name
+    @oldest_name = @oldest.name
     @bday = @oldest.dob.strftime("%B %e, %Y")
 
     render({ :template => "director_templates/eldest.html.erb"})
   end
+
+  def youngest
+
+    @youngest =Director.where.not({ :dob => nil}).order({ :dob => :desc}).at(0)
+    @youngest_name = @youngest.name
+    @bday = @youngest.dob.strftime("%B %e, %Y")
+
+    render({ :template => "director_templates/youngest.html.erb"})
+  end
+
+  def details
+
+    @dir = params.fetch("dir_id").to_i
+    @dir_data = Director.where({ :id => @dir}).at(0)
+
+    render({ :template => "director_templates/details.html.erb"})
+  end
+
 end

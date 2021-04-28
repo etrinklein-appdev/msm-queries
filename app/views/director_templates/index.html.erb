@@ -4,7 +4,7 @@
 <% @list_of_directors.each do |blah| %>
   <tr>
     <td><%= blah.id %> </td>
-    <td> <img src ="http://robohash.org/<%= blah.name %>">" </td>
+    <td> <img src ="http://robohash.org/<%= blah.name %>"> </td>
     <td><%= blah.name %> </td>
     <td><%= blah.dob %> </td>
     <td> <a href="/directors/<%= blah.id%>">Show Details</a>   </td>
